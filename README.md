@@ -15,13 +15,13 @@ To use the `backtest_api_client` in your project, follow these steps:
 
 Clone the private GitHub repository to your local machine:
 
-```sh  
+```sh
 git clone https://github.com/your-username/backtest_api_client.git
 ```
 
 Navigate to the cloned directory and install the library:
 
-```sh  
+```sh
 cd backtest_api_client
 pip install .
 ```
@@ -30,7 +30,7 @@ pip install .
 
 Alternatively, you can install the library directly from GitHub using pip:
 
-```sh  
+```sh
 pip install git+https://github.com/Yasho-7/backtesting_api_client.git
 ```
 
@@ -48,6 +48,46 @@ api = BacktestAPIClient()
 data = api.get_equity_data('RELIANCE', '2019-01-01', '2020-01-02')
 
 print(data)
+```
+
+## **Output Format**
+
+The output from the API is a list of dictionaries, where each dictionary contains the following fields:
+
+- `c`: The closing price.
+- `datetime`: The datetime of the record in GMT.
+- `h`: The highest price.
+- `l`: The lowest price.
+- `o`: The opening price.
+- `oi`: The open interest.
+- `ti`: The timestamp in UNIX format.
+- `vol`: The trading volume.
+
+Example output:
+
+```json
+[
+  {
+    "c": 1518.9,
+    "datetime": "Thu, 02 Jan 2020 09:58:00 GMT",
+    "h": 1519.0,
+    "l": 1518.45,
+    "o": 1518.45,
+    "oi": 0,
+    "ti": 1577959080,
+    "vol": 8762
+  },
+  {
+    "c": 1518.7,
+    "datetime": "Thu, 02 Jan 2020 09:59:00 GMT",
+    "h": 1518.9,
+    "l": 1518.5,
+    "o": 1518.85,
+    "oi": 0,
+    "ti": 1577959140,
+    "vol": 4935
+  }
+]
 ```
 
 ## **Development**
