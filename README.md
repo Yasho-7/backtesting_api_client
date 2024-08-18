@@ -15,17 +15,23 @@ To use the `backtest_api_client` in your project, follow these steps:
 
 Clone the private GitHub repository to your local machine:
 
-```sh
+```sh  
 git clone https://github.com/your-username/backtest_api_client.git
 ```
 
-### **2\. Install the Library**
-
 Navigate to the cloned directory and install the library:
 
-```sh
+```sh  
 cd backtest_api_client
 pip install .
+```
+
+### **2\. Install Directly from GitHub**
+
+Alternatively, you can install the library directly from GitHub using pip:
+
+```sh  
+pip install git+https://github.com/Yasho-7/backtesting_api_client.git
 ```
 
 ## **Usage**
