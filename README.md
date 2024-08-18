@@ -1,8 +1,87 @@
-# Backtest API Client
+​​**Backtest API Client**
 
-A Python client library for interacting with the Backtest Flask API.
+`backtest_api_client` is a Python library that provides a simple client for interacting with a backtest API. It allows users to retrieve equity data for specific symbols and date ranges.
 
-## Installation
+## **Features**
 
-```sh
-pip install .
+* Fetches equity data for specified symbols.  
+* Supports different data intervals (`min` for minute-level and `D` for daily).
+
+## **Installation**
+
+To use the `backtest_api_client` in your project, follow these steps:
+
+### **1\. Clone the Repository**
+
+Clone the private GitHub repository to your local machine:
+
+sh  
+Copy code  
+`git clone https://github.com/your-username/backtest_api_client.git`
+
+### **2\. Install the Library**
+
+Navigate to the cloned directory and install the library:
+
+sh  
+Copy code  
+`cd backtest_api_client`  
+`pip install .`
+
+## **Usage**
+
+Below is an example of how to use the `backtest_api_client`:
+
+python  
+Copy code  
+`from backtest_api_client import BacktestAPIClient`
+
+`# Create a new instance of the BacktestAPIClient`  
+`api = BacktestAPIClient()`
+
+`# Fetch equity data`  
+`data = api.get_equity_data('RELIANCE', '2019-01-01', '2020-01-02')`
+
+`print(data)`
+
+## **Development**
+
+### **1\. Set up a Virtual Environment**
+
+It's recommended to use a virtual environment for development:
+
+sh  
+Copy code  
+`python -m venv venv`  
+`` source venv/bin/activate  # On Windows use `venv\Scripts\activate` ``
+
+### **2\. Install Development Dependencies**
+
+Install the necessary dependencies for development:
+
+sh  
+Copy code  
+`pip install -r requirements.txt`
+
+### **3\. Run Tests**
+
+Run the tests to ensure everything is working correctly:
+
+sh  
+Copy code  
+`pytest`
+
+## **Contributing**
+
+Contributions are welcome\! Please follow the standard GitHub process:
+
+1. Fork the repository.  
+2. Create a new branch (`git checkout -b feature-branch`).  
+3. Commit your changes (`git commit -am 'Add new feature'`).  
+4. Push to the branch (`git push origin feature-branch`).  
+5. Create a new Pull Request.
+
+## **License**
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
