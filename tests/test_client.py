@@ -10,6 +10,12 @@ class TestBacktestAPIClient(unittest.TestCase):
         # print(response)
         self.assertIsInstance(response, list)
         # Add more assertions based on expected response
+    
+    def test_get_crypto_data(self):
+        response = self.client.get_crypto_data('BTCUSDT', '2022-01-01', '2024-01-02')
+        # print(response)
+        self.assertIsInstance(response, list)
+        # Add more assertions based on expected response
 
 if __name__ == '__main__':
     unittest.main()

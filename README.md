@@ -1,10 +1,11 @@
-​​**Backtest API Client**
+# **Backtest API Client**
 
-`backtest_api_client` is a Python library that provides a simple client for interacting with a backtest API. It allows users to retrieve equity data for specific symbols and date ranges.
+`backtest_api_client` is a Python library that provides a simple client for interacting with a backtest API. It allows users to retrieve equity and cryptocurrency data for specific symbols and date ranges.
 
 ## **Features**
 
 - Fetches equity data for specified symbols.
+- Fetches cryptocurrency data for specified symbols.
 - Supports different data intervals (`min` for minute-level and `D` for daily).
 
 ## **Installation**
@@ -22,7 +23,7 @@ git clone https://github.com/your-username/backtest_api_client.git
 Navigate to the cloned directory and install the library:
 
 ```sh
-cd backtest_api_client
+cd backtest_api_client`
 pip install .
 ```
 
@@ -38,6 +39,8 @@ pip install git+https://github.com/Yasho-7/backtesting_api_client.git
 
 Below is an example of how to use the `backtest_api_client`:
 
+### **Fetching Equity Data**
+
 ```python
 from backtest_api_client import BacktestAPIClient
 
@@ -45,14 +48,30 @@ from backtest_api_client import BacktestAPIClient
 api = BacktestAPIClient()
 
 # Fetch equity data
-data = api.get_equity_data('RELIANCE', '2019-01-01', '2020-01-02')
+equity_data = api.get_equity_data('RELIANCE', '2019-01-01', '2020-01-02')
 
-print(data)
+print(equity_data)
+```
+
+### **Fetching Cryptocurrency Data**
+
+```python
+from backtest_api_client import BacktestAPIClient
+
+# Create a new instance of the BacktestAPIClient
+api = BacktestAPIClient()
+
+# Fetch cryptocurrency data
+crypto_data = api.get_crypto_data('BTCUSDT', '2019-01-01', '2020-01-02')
+
+print(crypto_data)
 ```
 
 ## **Output Format**
 
-The output from the API is a list of dictionaries, where each dictionary contains the following fields:
+### **Equity Data Output Format**
+
+The output from the equity data API is a list of dictionaries, where each dictionary contains the following fields:
 
 - `c`: The closing price.
 - `datetime`: The datetime of the record in GMT.
@@ -63,7 +82,7 @@ The output from the API is a list of dictionaries, where each dictionary contain
 - `ti`: The timestamp in UNIX format.
 - `vol`: The trading volume.
 
-Example output:
+Example output for equity data:
 
 ```json
 [
@@ -90,6 +109,55 @@ Example output:
 ]
 ```
 
+### **Cryptocurrency Data Output Format**
+
+The output from the cryptocurrency data API is structured as a list of dictionaries, where each dictionary contains:
+
+- `close`: The closing price.
+- `close_time`: The closing time of the record.
+- `high`: The highest price.
+- `low`: The lowest price.
+- `number_of_trades`: The number of trades during the interval.
+- `open`: The opening price.
+- `quote_asset_volume`: The total quote asset volume traded.
+- `taker_buy_quote_asset_volume`: The total quote asset volume of trades initiated by takers.
+- `taker_buy_volume`: The total volume of trades initiated by takers.
+- `ti`: The timestamp in UNIX format.
+- `volume`: The total volume traded.
+
+Example output for cryptocurrency data:
+
+```json
+[
+  {
+    "close": 3675.26,
+    "close_time": "2019-01-01 00:00:00 IST",
+    "high": 3756.94,
+    "low": 3666.01,
+    "number_of_trades": 101049,
+    "open": 3701.23,
+    "quote_asset_volume": 53206333.4996949,
+    "taker_buy_quote_asset_volume": 28725256.95567065,
+    "taker_buy_volume": 7757.565493,
+    "ti": 1546281000,
+    "volume": 14371.67012
+  },
+  {
+    "close": 3816.63,
+    "close_time": "2019-01-02 00:00:00 IST",
+    "high": 3865.72,
+    "low": 3642,
+    "number_of_trades": 218140,
+    "open": 3675.16,
+    "quote_asset_volume": 138364632.84859303,
+    "taker_buy_quote_asset_volume": 71269502.77670763,
+    "taker_buy_volume": 18858.230677,
+    "ti": 1546367400,
+    "volume": 36611.023123
+  }
+]
+```
+
 ## **Development**
 
 ### **1\. Set up a Virtual Environment**
@@ -97,7 +165,7 @@ Example output:
 It's recommended to use a virtual environment for development:
 
 ```sh
-python -m venv venv
+python -m venv venv`
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
 
